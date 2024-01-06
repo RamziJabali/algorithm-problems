@@ -8,8 +8,9 @@ Interview Algorithm Questions that are completed.
 Given five positive integers, find the minimum and maximum values that can be calculated by summing exactly four of the five integers. Then print the respective minimum and maximum values as a single line of two space-separated long integers.
 
 Example
+arr = [1,3,5,7,9]
+The minimum sum is 1 + 3 + 5 + 7 = 16 and the maximum sum is 3 + 5 + 7 + 9 = 24. The function prints
 
-The minimum sum is  and the maximum sum is . The function prints
 
 16 24
 Function Description
@@ -17,8 +18,7 @@ Function Description
 Complete the miniMaxSum function in the editor below.
 
 miniMaxSum has the following parameter(s):
-
-arr: an array of  integers
+arr: an array of 5 integers
 Print
 
 Print two space-separated integers on one line: the minimum sum and the maximum sum of  of  elements.
@@ -53,9 +53,29 @@ Hints: Beware of integer overflow! Use 64-bit Integer.
 ```
 
 ## Solution:
-
+100%
 ```
+fun miniMaxSum(arr: Array<Int>): Unit {
+    var smallest: Int = arr[0] 
+    var largest: Int = arr[0]
+    var total: Long = 0
 
+    for(number in arr){
+        smallest = if (smallest < number) smallest else number
+        largest = if (largest > number) largest else number        
+        total = total + number
+    }
+    var smallestTotal = total - largest
+    var largestTotal = total - smallest
+    print("$smallestTotal $largestTotal")
+}
+
+fun main(args: Array<String>) {
+
+    val arr = readLine()!!.trimEnd().split(" ").map{ it.toInt() }.toTypedArray()
+
+    miniMaxSum(arr)
+}
 ```
 
 
