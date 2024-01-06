@@ -42,13 +42,13 @@ Sample Output
 10 14
 Explanation
 
-The numbers are , , , , and . Calculate the following sums using four of the five integers:
+The numbers are 1, ,2, 3, 4, and 5. Calculate the following sums using four of the five integers:
+ 1. Sum everything except 1, the sum is 2 + 3 + 4 + 5 = 14.
+ 2. Sum everything except 2, the sum is 1 + 3 + 4 + 5 = 13.
+ 3. Sum everything except 3, the sum is 1 + 2 + 4 + 5 = 12.
+ 4. Sum everything except 4, the sum is 1 + 2 + 3 + 5 = 11.
+ 5. Sum everything except 5, the sum is 1 + 2 + 3 + 4 = 10.
 
-Sum everything except , the sum is .
-Sum everything except , the sum is .
-Sum everything except , the sum is .
-Sum everything except , the sum is .
-Sum everything except , the sum is .
 Hints: Beware of integer overflow! Use 64-bit Integer.
 ```
 
