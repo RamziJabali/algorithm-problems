@@ -286,7 +286,20 @@ Constraints
 ## Solution
 100%
 ```
-
+fun lonelyinteger(a: Array<Int>): Int {
+    val maxSize = 100
+    val repetitionsArray = Array<Int>(maxSize){0}
+    for (index in a.indices) {
+        val newIndex = a[index] % maxSize
+        repetitionsArray[newIndex] += 1
+    }
+    for (index in repetitionsArray.indices) {
+        if(repetitionsArray[index] == 1){
+            return index
+        }
+    }
+    return 0
+}
 ```
 
 
