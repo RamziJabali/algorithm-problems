@@ -396,7 +396,7 @@ fun palindromeChecker2(word: String): Boolean {
 ```
 
 ## random: Anagram
-## O(2N+2)
+## O(2N)
 ```
 // 2 strings, anagram words you can rearrange that makes it into another word
 fun anagram(word1: String, word2: String): Boolean {
