@@ -424,3 +424,57 @@ fun anagram(word1: String, word2: String): Boolean {
 }
 ```
 
+## random: PhoneNumberPad
+```
+/ Given the phone dial pad attached below. Write a function that takes in a string of entered numbers
+// and returns all possible corresponding text possibly meaning to enter as a list of strings.
+
+// Example: Input “123”
+// Output:  	[“ad”, “ae”, “af”, “bd”, “be”, “bf”, “cd”, “ce”, “cf”]
+```
+```
+fun phoneNumberDial(numbers: String): List<String> {
+    val phonePad = phonePadHashMap()
+    var listOfCombinations = mutableListOf<String>()
+    var lastCombinations = mutableListOf<String>()
+    var currentPrimaryCombinationLetter = ""
+    //base case length is 1
+    if (numbers.length == 1) {
+        return phonePad[numbers[0].digitToInt()]!!
+    }
+    // length > 1
+    for (character in phonePad[numbers[0].digitToInt()]!!) { // check the character list of number 2 -> ["23"]
+        currentPrimaryCombinationLetter += character // Add the first character in the list of number 2 -> A
+        if (numbers.length > 1) {
+            lastCombinations = phoneNumberDial(
+                numbers.substring(
+                    1,
+                    numbers.length
+                )
+            ).toMutableList() // get the next number in the string
+        }
+        for (character in lastCombinations) {
+            listOfCombinations.add(currentPrimaryCombinationLetter + character)
+        }
+        lastCombinations.clear()
+        currentPrimaryCombinationLetter = ""
+    }
+    return listOfCombinations
+}
+
+// we could also use a list instead of a hashmap
+private fun phonePadHashMap(): HashMap<Int, List<String>> {
+    val phonePad = HashMap<Int, List<String>>()
+    phonePad[0] = listOf("")
+    phonePad[1] = listOf("")
+    phonePad[2] = listOf("A", "B", "C")
+    phonePad[3] = listOf("D", "E", "F")
+    phonePad[4] = listOf("G", "H", "I")
+    phonePad[5] = listOf("J", "K", "L")
+    phonePad[6] = listOf("M", "N", "O")
+    phonePad[7] = listOf("P", "Q", "R", "S")
+    phonePad[8] = listOf("T", "U", "V")
+    phonePad[9] = listOf("W", "Y", "X", "Z")
+    return phonePad
+}
+```
