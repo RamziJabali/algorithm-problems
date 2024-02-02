@@ -434,25 +434,22 @@ fun anagram(word1: String, word2: String): Boolean {
 ```
 ```
 fun phoneNumberDial(numbers: String): List<String> {
-    val phonePad = phonePadHashMap()
+    val phonePad = getPhonePadHashMap()
     var listOfCombinations = mutableListOf<String>()
     var lastCombinations = mutableListOf<String>()
     var currentPrimaryCombinationLetter = ""
     //base case length is 1
     if (numbers.length == 1) {
-        return phonePad[numbers[0].digitToInt()]!!
+        return phonePad[numbers[0].toString()]!!
     }
     // length > 1
-    for (character in phonePad[numbers[0].digitToInt()]!!) { // check the character list of number 2 -> ["23"]
+    for (character in phonePad[numbers[0].toString()]!!) { // check the character list of number 2 -> ["23"]
         currentPrimaryCombinationLetter += character // Add the first character in the list of number 2 -> A
-        if (numbers.length > 1) {
-            lastCombinations = phoneNumberDial(
-                numbers.substring(
-                    1,
-                    numbers.length
-                )
-            ).toMutableList() // get the next number in the string
-        }
+        lastCombinations = phoneNumberDial(
+            numbers.substring(
+                1, numbers.length
+            )
+        ).toMutableList() // get the next number in the string
         for (character in lastCombinations) {
             listOfCombinations.add(currentPrimaryCombinationLetter + character)
         }
@@ -462,20 +459,18 @@ fun phoneNumberDial(numbers: String): List<String> {
     return listOfCombinations
 }
 
-// we could also use a list instead of a hashmap
-private fun getPhonePadHashMap2(): HashMap<String, List<String>> =
-    HashMap<String, List<String>>().apply {
-        this.mapKeys {
-            "0" to listOf("")
-            "1" to listOf("")
-            "2" to listOf("A", "B", "C")
-            "3" to listOf("D", "E", "F")
-            "4" to listOf("G", "H", "I")
-            "5" to listOf("J", "K", "L")
-            "6" to listOf("M", "N", "O")
-            "7" to listOf("P", "Q", "R", "S")
-            "8" to listOf("T", "U", "V")
-            "9" to listOf("W", "Y", "X", "Z")
-        }
+private fun getPhonePadHashMap(): HashMap<String, List<String>> = HashMap<String, List<String>>().apply {
+    this.mapKeys {
+        "0" to listOf("")
+        "1" to listOf("")
+        "2" to listOf("A", "B", "C")
+        "3" to listOf("D", "E", "F")
+        "4" to listOf("G", "H", "I")
+        "5" to listOf("J", "K", "L")
+        "6" to listOf("M", "N", "O")
+        "7" to listOf("P", "Q", "R", "S")
+        "8" to listOf("T", "U", "V")
+        "9" to listOf("W", "Y", "X", "Z")
     }
+}
 ```
