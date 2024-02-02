@@ -463,18 +463,19 @@ fun phoneNumberDial(numbers: String): List<String> {
 }
 
 // we could also use a list instead of a hashmap
-private fun phonePadHashMap(): HashMap<Int, List<String>> {
-    val phonePad = HashMap<Int, List<String>>()
-    phonePad[0] = listOf("")
-    phonePad[1] = listOf("")
-    phonePad[2] = listOf("A", "B", "C")
-    phonePad[3] = listOf("D", "E", "F")
-    phonePad[4] = listOf("G", "H", "I")
-    phonePad[5] = listOf("J", "K", "L")
-    phonePad[6] = listOf("M", "N", "O")
-    phonePad[7] = listOf("P", "Q", "R", "S")
-    phonePad[8] = listOf("T", "U", "V")
-    phonePad[9] = listOf("W", "Y", "X", "Z")
-    return phonePad
-}
+private fun getPhonePadHashMap2(): HashMap<String, List<String>> =
+    HashMap<String, List<String>>().apply {
+        this.mapKeys {
+            "0" to listOf("")
+            "1" to listOf("")
+            "2" to listOf("A", "B", "C")
+            "3" to listOf("D", "E", "F")
+            "4" to listOf("G", "H", "I")
+            "5" to listOf("J", "K", "L")
+            "6" to listOf("M", "N", "O")
+            "7" to listOf("P", "Q", "R", "S")
+            "8" to listOf("T", "U", "V")
+            "9" to listOf("W", "Y", "X", "Z")
+        }
+    }
 ```
