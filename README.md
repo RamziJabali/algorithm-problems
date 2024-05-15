@@ -46,6 +46,31 @@ There are positive numbers, negative numbers, and zero in the array.
 The proportions of occurrence are positive: , negative: and zeros:
 ```
 
+## Solution:
+100%
+
+```
+
+fun plusMinus(arr: Array<Int>): Unit {
+    // Write your code here
+    var negativeNumbers = 0.0
+    var positiveNumbers = 0.0
+    var numberOfZeros = 0.0
+    for(number in arr){
+        if(number < 0){
+            negativeNumbers++
+        } else if(number > 0){
+            positiveNumbers++
+        } else {
+            numberOfZeros++
+        }
+    }
+    println("${BigDecimal(positiveNumbers/arr.size).setScale(6, RoundingMode.HALF_EVEN)}\n
+             ${BigDecimal(negativeNumbers/arr.size).setScale(6, RoundingMode.HALF_EVEN)}\n\
+             ${BigDecimal(numberOfZeros/arr.size).setScale(6, RoundingMode.HALF_EVEN)}")
+}
+```
+
 
 ## 2) Mini-Max Sum
 
