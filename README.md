@@ -372,6 +372,24 @@ fun lonelyinteger(a: Array<Int>): Int {
 }
 ```
 
+
+## Solution 2
+100%
+```
+fun lonelyinteger(a: Array<Int>): Int {
+    val numberMap = HashMap<Int, Int>()
+    for (number in a){
+        val currentQuantity = numberMap[number] ?: 0
+        numberMap[number] = currentQuantity + 1
+    }
+    for (number in numberMap) {
+        if(number.value == 1){
+            return number.key
+        }
+    }
+    return -1
+```
+
 ## 6) Flipping Bits
 ```
 You will be given a list of 32 bit unsigned integers. Flip all the bits (1 + 0 and 0 —+ 1) and return the result as
