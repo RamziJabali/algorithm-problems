@@ -49,8 +49,7 @@ The proportions of occurrence are positive: , negative: and zeros:
 ## Solution:
 100%
 
-```
-
+```kotlin
 fun plusMinus(arr: Array<Int>): Unit {
     // Write your code here
     var negativeNumbers = 0.0
@@ -124,7 +123,7 @@ Hints: Beware of integer overflow! Use 64-bit Integer.
 
 ## Solution:
 100%
-```
+```kotlin
 fun miniMaxSum(arr: Array<Int>): Unit {
     var smallest: Int = arr[0] 
     var largest: Int = arr[0]
@@ -185,7 +184,7 @@ Sample Output
 
 ## Solution
 100%
-```
+```kotlin
 fun timeConversion(s: String): String {
     val hours: String = s.subSequence(0, 2).toString()
     val time: String = ""
@@ -301,7 +300,7 @@ Sample Output 3
 
 ## Solution
 100%
-```
+```kotlin
 fun matchingStrings(strings: Array<String>, queries: Array<String>): Array<Int> {
     val repetitions = Array<Int>(queries.size){0}
     var index = 0
@@ -355,7 +354,7 @@ Constraints
 
 ## Solution
 100%
-```
+```kotlin
 fun lonelyinteger(a: Array<Int>): Int {
     val maxSize = 100
     val repetitionsArray = Array<Int>(maxSize){0}
@@ -375,7 +374,7 @@ fun lonelyinteger(a: Array<Int>): Int {
 
 ## Solution 2
 100%
-```
+```kotlin
 fun lonelyinteger(a: Array<Int>): Int {
     val numberMap = HashMap<Int, Int>()
     for (number in a){
@@ -444,6 +443,56 @@ Take 1 for example, as unsigned 32-bits is 00000000000000000000000000000001 and 
 Incomplete
 ```
 
+```
+
+## 7 Diagonal Difference
+
+```
+Given a square matrix, calculate the absolute difference between the sums of its diagonals.
+
+For example, the square matrix arr is shown below:
+
+1 2 3
+4 5 6
+9 8 9  
+The right-to-left diagonal = 3+9+5 = 17. The left-to-right diagonal = 1+9+5 = 15. Their absolute difference is |15 - 17| = 2.
+
+Function description
+
+Complete the  function in the editor below.
+
+diagonalDifference takes the following parameter:
+
+int arr[n][m]: an array of integers
+Return
+
+int: the absolute diagonal difference
+Input Format
+
+The first line contains a single integer, n, the number of rows and columns in the square matrix arr.
+Each of the next arr[[i] lines describes a row, and consists of n space-separated integers arr[i][j].
+```
+## Solution: 100%
+
+```kotlin
+fun diagonalDifference(arr: Array<Array<Int>>): Int {
+    val leftDiagonal = mutableListOf<Int>()
+    val rightDiagonal = mutableListOf<Int>()
+    val matrixSize = arr.size
+    for (i in arr.indices) {
+        leftDiagonal.add(arr[i][i])
+        rightDiagonal.add(arr[i][matrixSize - i - 1])
+    }
+    val sumOfLeft = leftDiagonal.foldRight(0) { element, acc ->
+        acc + element
+    }
+
+    val sumOfRight = rightDiagonal.foldRight(0){ element, acc ->
+        acc + element
+    }
+
+    return Math.abs(sumOfLeft - sumOfRight)
+}
 ```
 
 ## random: Palindrome
@@ -520,7 +569,7 @@ fun anagram(word1: String, word2: String): Boolean {
 // Example: Input “123”
 // Output:  	[“ad”, “ae”, “af”, “bd”, “be”, “bf”, “cd”, “ce”, “cf”]
 ```
-```
+```kotlin
 fun phoneNumberDial(numbers: String): List<String> {
     val phonePad = getPhonePadHashMap()
     var listOfCombinations = mutableListOf<String>()
