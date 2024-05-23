@@ -494,7 +494,7 @@ fun diagonalDifference(arr: Array<Array<Int>>): Int {
     return Math.abs(sumOfLeft - sumOfRight)
 }
 ```
-## Counting Sort 1
+## 8 Counting Sort 1
 ![Screenshot 2024-05-16 at 4 43 48 PM](https://github.com/RamziJabali/algorithm-problems/assets/18749441/85d7328c-9d39-44e1-8cf0-744fd7a04f7a)
 ![Screenshot 2024-05-16 at 4 44 27 PM](https://github.com/RamziJabali/algorithm-problems/assets/18749441/d5f2bd81-7ce1-492e-a164-835814353462)
 ```
@@ -534,6 +534,35 @@ fun countingSort(arr: Array<Int>): Array<Int> {
         countingArray[index]+= 1
     }
     return countingArray
+}
+```
+
+## 9 Tower Breakers
+
+```
+![Screenshot 2024-05-23 at 11 56 58 AM](https://github.com/RamziJabali/algorithm-problems/assets/18749441/7866505d-8cd0-473a-bbb1-5a19adf78e28)
+![Screenshot 2024-05-23 at 11 57 20 AM](https://github.com/RamziJabali/algorithm-problems/assets/18749441/525bfcbf-a36b-4c67-ac59-102bd1fd6f0a)
+```
+
+```kotlin
+fun towerBreakers(n: Int, m: Int): Int {
+    // special cases
+    if (m == 1) {
+        return 2
+    }
+    if (n == 1) {
+        return 1 
+    }
+    return when (n % 2) {
+        // even case
+        0 -> {
+            2
+        }
+        // odd case
+        else -> {
+            1
+        }
+    }
 }
 ```
 ## random: Palindrome
