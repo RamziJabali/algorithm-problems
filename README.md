@@ -546,12 +546,9 @@ fun countingSort(arr: Array<Int>): Array<Int> {
 
 ```kotlin
 fun towerBreakers(n: Int, m: Int): Int {
-    // special cases
+    // special case
     if (m == 1) {
         return 2
-    }
-    if (n == 1) {
-        return 1 
     }
     return when (n % 2) {
         // even case
