@@ -539,10 +539,10 @@ fun countingSort(arr: Array<Int>): Array<Int> {
 
 ## 9 Tower Breakers
 
-```
+
 ![Screenshot 2024-05-23 at 11 56 58 AM](https://github.com/RamziJabali/algorithm-problems/assets/18749441/7866505d-8cd0-473a-bbb1-5a19adf78e28)
 ![Screenshot 2024-05-23 at 11 57 20 AM](https://github.com/RamziJabali/algorithm-problems/assets/18749441/525bfcbf-a36b-4c67-ac59-102bd1fd6f0a)
-```
+
 
 ```kotlin
 fun towerBreakers(n: Int, m: Int): Int {
